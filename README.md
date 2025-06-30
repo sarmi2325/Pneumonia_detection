@@ -96,7 +96,7 @@ Weights were selected based on validation performance.
 
 ---
 
-## 🔍 Screenshot
+## 🔍 Demo
 
-![App Screenshot](images/demo_screenshot.png)
+Check out the live deployed app here: [Streamlit Demo]([https://your-streamlit-link.streamlit.app/](https://pneumoniadetection-er8mvnqy9s9ejsr2g6wqjk.streamlit.app/))
 
