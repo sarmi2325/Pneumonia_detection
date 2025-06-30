@@ -1,4 +1,4 @@
-# 🫁 Pneumonia Detection using Ensemble of Deep Learning Models
+#  Pneumonia Detection using Ensemble of Deep Learning Models
 
 A Streamlit-based web application that uses an ensemble of three deep learning models — **Simple CNN**, **MobileNetV2**, and **EfficientNetB0** — to predict **Pneumonia** from Chest X-ray images. The app also includes **Grad-CAM visualizations** to explain model decisions.
 
@@ -58,6 +58,7 @@ To develop a reliable and explainable AI system that can:
 |                    | PNEUMONIA | 0.95      | 0.94   | 0.95     | 0.9874 |
 
 
+
 | Model          | Accuracy           | Precision   | Recall      | F1-Score    | AUC    | Notes                                                                                                           |
 | -------------- | ------------------ | ----------- | ----------- | ----------- | ------ | --------------------------------------------------------------------------------------------------------------- |
 | Simple CNN     | 94.20%             | 0.94        | 0.94        | 0.94        | 0.9848 | Overfitting initially, improved with L2 & dropout                                                               |
@@ -98,5 +99,5 @@ Weights were selected based on validation performance.
 
 ## 🔍 Demo
 
-Check out the live deployed app here: [Streamlit Demo]([https://your-streamlit-link.streamlit.app/](https://pneumoniadetection-er8mvnqy9s9ejsr2g6wqjk.streamlit.app/))
+Check out the live deployed app here: [Streamlit Demo]((https://pneumoniadetection-er8mvnqy9s9ejsr2g6wqjk.streamlit.app/))
 
