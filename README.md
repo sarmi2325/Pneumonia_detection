@@ -89,9 +89,9 @@ This project is deployed using **Streamlit**, allowing users to:
 
 Each model predicts the probability of Pneumonia. The final prediction is a **weighted average** of all models:
 
-\[
-\text{Prediction} = 0.2 \times \text{SimpleCNN} + 0.3 \times \text{MobileNetV2} + 0.5 \times \text{EfficientNetB0}
-\]
+
+Prediction = 0.2 * SimpleCNN + 0.3 * MobileNetV2 + 0.5 * EfficientNetB0
+
 
 Weights were selected based on validation performance.
 
