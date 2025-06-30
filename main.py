@@ -1,17 +1,13 @@
 import streamlit as st
 from PIL import Image
 import numpy as np
-import os
-os.environ['KERAS_BACKEND'] = 'tensorflow'
-os.environ['TF_KERAS'] = '1'
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 from utils import preprocess_image, make_gradcam_heatmap, superimpose_heatmap
 
 # Load models
-#model_cnn = load_model("cnn_v3.keras")
-model = load_model("mobilenetv2.keras", safe_mode=False, compile=False)
 model_cnn = load_model("cnn_v3.keras")
+model_mobilenet = load_model("mobilenetv2.keras")
 model_effnet = load_model("efficientnetb0_v3.keras")
 
 models = {
