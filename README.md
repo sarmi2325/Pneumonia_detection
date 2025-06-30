@@ -97,7 +97,24 @@ Weights were selected based on validation performance.
 
 ---
 
+## Samples Test
+
+| Sample | Ground Truth | Predicted | **Simple CNN** <br> Pneumonia / Normal | **MobileNetV2** <br> Pneumonia / Normal | **EfficientNetB0** <br> Pneumonia / Normal | **Final Ensemble** | Pneumonia / Normal |
+| ------ | ------------ | --------- | -------------------------------------- | --------------------------------------- | ------------------------------------------ | ------------------ | ------------------ |
+| 1      | NORMAL       | NORMAL    | 3.69% / 96.31%                         | 17.02% / 82.98%                         | 10.13% / 89.87%                            | **NORMAL**         | 10.28% / 89.72%    |
+| 2      | NORMAL       | NORMAL    | 0.10% / 99.90%                         | 0.17% / 99.83%                          | 0.31% / 99.69%                             | **NORMAL**         | 0.19% / 99.81%     |
+| 3      | NORMAL       | NORMAL    | 7.64% / 92.36%                         | 9.99% / 90.01%                          | 3.89% / 96.11%                             | **NORMAL**         | 7.17% / 92.83%     |
+| 4      | NORMAL       | NORMAL    | 13.42% / 86.58%                        | 0.01% / 99.99%                          | 0.28% / 99.72%                             | **NORMAL**         | 4.57% / 95.43%     |
+| 5      | NORMAL       | NORMAL    | 23.50% / 76.50%                        | 0.17% / 99.83%                          | 0.10% / 99.90%                             | **NORMAL**         | 7.92% / 92.08%     |
+| 6      | PNEUMONIA    | PNEUMONIA | 99.83% / 0.17%                         | 99.77% / 0.23%                          | 99.71% / 0.29%                             | **PNEUMONIA**      | 99.77% / 0.23%     |
+| 7      | PNEUMONIA    | PNEUMONIA | 99.30% / 0.70%                         | 99.94% / 0.06%                          | 96.42% / 3.58%                             | **PNEUMONIA**      | 98.55% / 1.45%     |
+| 8      | PNEUMONIA    | PNEUMONIA | 70.51% / 29.49%                        | 95.77% / 4.23%                          | 96.86% / 3.14%                             | **PNEUMONIA**      | 87.71% / 12.29%    |
+| 9      | PNEUMONIA    | PNEUMONIA | 61.57% / 38.43%                        | 92.21% / 7.79%                          | 90.54% / 9.46%                             | **PNEUMONIA**      | 81.44% / 18.56%    |
+| 10     | PNEUMONIA    | PNEUMONIA | 91.46% / 8.54%                         | 95.06% / 4.94%                          | 95.84% / 4.16%                             | **PNEUMONIA**      | 94.12% / 5.88%     |
+
+
 ## 🔍 Demo
 
-Check out the live deployed app here: [Streamlit Demo]((https://pneumoniadetection-er8mvnqy9s9ejsr2g6wqjk.streamlit.app/))
+You can check out the live deployed app here:[Demo](https://pneumoniadetection-er8mvnqy9s9ejsr2g6wqjk.streamlit.app/)
+
 
