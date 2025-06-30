@@ -7,7 +7,7 @@ from utils import preprocess_image, make_gradcam_heatmap, superimpose_heatmap
 
 # Load models
 #model_cnn = load_model("cnn_v3.keras")
-model_mobilenet = load_model("mobilenetv2.keras")
+model = load_model("mobilenetv2.keras", safe_mode=False, compile=False)
 model_cnn = load_model("cnn_v3.keras")
 model_effnet = load_model("efficientnetb0_v3.keras")
 
