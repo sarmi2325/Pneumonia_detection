@@ -1,7 +1,7 @@
 setuptools 
 wheel
-tensorflow>=2.10,<2.15
-streamlit
+tensorflow>=2.11,<2.15
+streamlit>=1.27.0
 Pillow
 opencv-python
 numpy
