@@ -87,11 +87,8 @@ This project is deployed using **Streamlit**, allowing users to:
 
 ## 🧪 How Ensemble Works
 
-Each model predicts the probability of Pneumonia. The final prediction is a **weighted average** of all models:
 
-
-Prediction = 0.2 * SimpleCNN + 0.3 * MobileNetV2 + 0.5 * EfficientNetB0
-
+Prediction = Dynamic Confidence-Based Voting to avoid misleading prediction
 
 Weights were selected based on validation performance.
 
