@@ -58,43 +58,52 @@ if uploaded_file:
     st.markdown("<h2 style='text-align: center;'>Individual Model Predictions</h2>", unsafe_allow_html=True)
 
     probs = []
+    weights = []
     pred_cols = st.columns(3)
+    
+    # Display individual model predictions and calculate weights
     for (name, model), col in zip(models.items(), pred_cols):
         prob = model.predict(img_array, verbose=0)[0][0]
         probs.append(prob)
+        
+        confidence = max(prob, 1 - prob)  # Confidence weight
+        weights.append(confidence)
+    
         with col:
             st.markdown(
                 f"""
                 <div style='text-align: center; font-size: 20px;'>
                     <strong>{name}</strong><br>
-                    PNEUMONIA: <span style='color: red;'>{prob * 100:.2f}%</span><br>
-                    NORMAL: <span style='color: green;'>{(1 - prob) * 100:.2f}%</span>
+                    <span style='color: red;'>PNEUMONIA: {prob * 100:.2f}%</span><br>
+                    <span style='color: green;'>NORMAL: {(1 - prob) * 100:.2f}%</span>
                 </div>
                 """,
                 unsafe_allow_html=True
             )
-    st.markdown("<hr>", unsafe_allow_html=True)
-
-    # Final ensemble prediction
-    ensemble_prob = np.mean(probs)
-    final_class = "PNEUMONIA" if ensemble_prob > 0.5 else "NORMAL"
-
-    st.markdown("""
-    <div style='background-color: #f0f0f0; padding: 25px; border: 2px solid black; border-radius: 12px;
-                width: 60%; margin: 40px auto; text-align: center;'>
-        <h2 style='color: black;'>Final Ensemble Prediction: {}</h2>
-        <p style='font-size: 18px; color: red;'>PNEUMONIA Probability: {:.2f}%</p>
-        <p style='font-size: 18px; color: green;'>NORMAL Probability: {:.2f}%</p>
-    </div>
-    """.format(final_class, ensemble_prob * 100, (1 - ensemble_prob) * 100), unsafe_allow_html=True)
-else:
-    st.info("Please upload a chest X-ray image to continue.")
-
-
-
-
-
-
     
+    st.markdown("<hr>", unsafe_allow_html=True)
+    
+    # Final Ensemble Prediction: Weighted Average using Confidence
+    probs = np.array(probs)
+    weights = np.array(weights)
+    normalized_weights = weights / np.sum(weights)
+    weighted_avg_prob = np.sum(probs * normalized_weights)
+    final_class = "PNEUMONIA" if weighted_avg_prob > 0.5 else "NORMAL"
+    
+    st.markdown(
+        f"""
+        <div style='background-color: #f0f0f0; padding: 25px; border: 2px solid black; border-radius: 12px;
+                    width: 60%; margin: 40px auto; text-align: center;'>
+            <h2 style='color: black;'>Final Ensemble Prediction: 
+            <span style='color: {"red" if final_class == "PNEUMONIA" else "green"};'>{final_class}</span></h2>
+            <p style='font-size: 18px; color: red;'>PNEUMONIA Probability: {weighted_avg_prob * 100:.2f}%</p>
+            <p style='font-size: 18px; color: green;'>NORMAL Probability: {(1 - weighted_avg_prob) * 100:.2f}%</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    
+        
 
   
