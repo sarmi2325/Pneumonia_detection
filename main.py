@@ -7,7 +7,7 @@ from utils import preprocess_image, make_gradcam_heatmap, superimpose_heatmap
 import base64
 
 # Page setup
-st.set_page_config(page_title="🫁 Pneumonia Detector", layout="wide")
+st.set_page_config(page_title="Pneumonia Detector", layout="wide")
 
 # Load models
 model_cnn = load_model("cnn_v3.keras")
@@ -26,7 +26,7 @@ class_names = ['NORMAL', 'PNEUMONIA']
 st.markdown(
     """
     <div style='text-align:center; padding: 10px 0;'>
-        <h1> Pneumonia Detection using Deep Learning Ensemble</h1>
+        <h1>Pneumonia Detection using Deep Learning Ensemble</h1>
         <p style='font-size:18px;'>Upload a chest X-ray to get predictions from 3 models and interpret it using Grad-CAM visualization.</p>
     </div>
     """, unsafe_allow_html=True
