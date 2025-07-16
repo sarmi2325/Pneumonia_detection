@@ -177,8 +177,6 @@ Weighted avg     0.94      0.94      0.94       586
 
 Each model highlights the regions in the chest X-ray that influenced its prediction. These heatmaps build clinical trust in AI-based decisions.
 
-![Grad-CAM Example](assets/gradcam_example.png) <!-- Replace with your image path -->
-
 ---
 
 ## 🚀 Deployment
