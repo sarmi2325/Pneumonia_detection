@@ -109,6 +109,88 @@ Weights were selected based on validation performance.
 | 9      | PNEUMONIA    | PNEUMONIA | 61.57% / 38.43%                        | 92.21% / 7.79%                          | 90.54% / 9.46%                             | **PNEUMONIA**      | 81.44% / 18.56%    |
 | 10     | PNEUMONIA    | PNEUMONIA | 91.46% / 8.54%                         | 95.06% / 4.94%                          | 95.84% / 4.16%                             | **PNEUMONIA**      | 94.12% / 5.88%     |
 
+---
+## Version 2
+
+A real-time Streamlit web application that classifies Chest X-ray images as **Normal** or **Pneumonia** using an ensemble of fine-tuned CNN architectures. The system combines high accuracy with transparency through **Grad-CAM visualizations** and **knowledge distillation** for efficiency.
+
+---
+
+## 🎯 Objective
+
+To build a **reliable, interpretable, and lightweight AI assistant** that:
+- Detects **pneumonia from chest X-rays** using deep learning.
+- Provides **visual explanations** using Grad-CAM for clinical trust.
+- Delivers **fast, accurate predictions** with ensemble voting and distillation.
+
+---
+
+## 🧠 Models Used
+
+| Model            | Description                                 | Parameters | Accuracy |
+|------------------|---------------------------------------------|------------|----------|
+| MobileNetV2       | Distilled from ResNet50 for lightweight use | ~2.2M      | 95.9%    |
+| EfficientNetB0    | Pretrained + fine-tuned backbone            | ~5.3M      | 94.7%    |
+| Ensemble (2 Models) | Confidence-weighted average               | —          | **~96.2%** |
+
+---
+
+## ⚙️ Techniques Used
+
+| Technique                 | Purpose                                                                 |
+|---------------------------|-------------------------------------------------------------------------|
+| ✅ Transfer Learning        | Initialize models using pretrained ImageNet weights                    |
+| ✅ Knowledge Distillation   | Distill ResNet50 teacher into MobileNetV2 student                      |
+| ✅ Data Augmentation        | Improve generalization, reduce overfitting                            |
+| ✅ EarlyStopping            | Automatically stop training to prevent overfitting                     |
+| ✅ Grad-CAM                 | Add model explainability using heatmap overlays                        |
+| ✅ Ensemble Voting          | Use weighted average for robust final prediction                       |
+
+---
+
+## 📊 Evaluation Metrics
+
+**Test Classification Report:**
+
+```
+              precision    recall  f1-score   support
+
+       NORMAL     0.98      0.89      0.94       293
+    PNEUMONIA     0.90      0.99      0.94       293
+
+    Accuracy                          0.94       586
+   Macro avg     0.94      0.94      0.94       586
+Weighted avg     0.94      0.94      0.94       586
+```
+
+- **AUC Score:** `0.9918`
+- **Confusion Matrix:**
+
+```
+[[262  31]
+ [  4 289]]
+```
+
+---
+
+## 🧪 Grad-CAM Visualizations
+
+Each model highlights the regions in the chest X-ray that influenced its prediction. These heatmaps build clinical trust in AI-based decisions.
+
+![Grad-CAM Example](assets/gradcam_example.png) <!-- Replace with your image path -->
+
+---
+
+## 🚀 Deployment
+
+- Built using **Streamlit** for web-based deployment
+- Upload `.jpg`, `.jpeg`, or `.png` X-ray images
+- View:
+  - Predictions from MobileNetV2 and EfficientNetB0
+  - Ensemble confidence output
+  - Grad-CAM visual explanations
+
+---
 
 ## 🔍 Demo
 
